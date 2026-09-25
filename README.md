@@ -16,7 +16,6 @@ pnpm exec playwright install
 ```
 
 Then, here's the list of command and their use case.
-You can also use ```npm run``` instead of ```pnpm```
 
 | Level | Command | What it runs |
 | ----- | ------- | ------------ |
