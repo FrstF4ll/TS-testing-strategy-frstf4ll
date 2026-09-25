@@ -4,11 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc src/index.ts --outDir dist",
+    "dev": "vite",
+    "dev:server": "tsx watch src/index.ts",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "start": "NODE_ENV=production node dist/index.js",
-    "preview": "vite preview"
+    "typecheck": "tsc -b",
+    "test:unit": "vitest run src/domain",
+    "test:functional": "vitest run src/server",
+    "test:component": "vitest run src/components",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@elysia/node": "^1.4.6",
