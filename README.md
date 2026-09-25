@@ -9,13 +9,13 @@ Small equipment loaning app designed to learn TDD and explore different testing 
 * React testing library (Component testing)
 
 ## Running tests
-First, install dependencies.
+First, run dep installation :
 ```bash
 pnpm install
+pnpm exec playwright install
 ```
 
 Then, here's the list of command and their use case.
-
 You can also use ```npm run``` instead of ```pnpm```
 
 | Level | Command | What it runs |
