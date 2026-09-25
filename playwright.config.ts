@@ -2,7 +2,7 @@ import {defineConfig} from "@playwright/test";
 
 const baseURL = 'http://localhost:5173'
 
-defineConfig({
+export default defineConfig({
     testDir: './e2e',
     use: { baseURL: baseURL },
     webServer: { command: 'pnpm dev', url: baseURL, reuseExistingServer: true },

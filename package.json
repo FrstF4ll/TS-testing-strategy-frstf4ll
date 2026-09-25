@@ -7,8 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "NODE_ENV=production node dist/index.js",
     "lint": "eslint .",
-    "start": "NODE_ENV=production node dist/index.js"
+    "typecheck": "tsc -b",
+    "test:unit": "vitest run src/domain",
+    "test:functional": "vitest run src/server",
+    "test:component": "vitest run src/components",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@elysia/node": "^1.4.6",
