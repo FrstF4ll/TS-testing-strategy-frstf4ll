@@ -10,12 +10,12 @@ describe('Loaning availability', () => {
         stock: 4
     };
 
-    it('should refuse loaning if asked duration exceed allowed maximum', () => {
+    it('should approve loan only if duration does not exceed maximum allowed', () => {
         expect(validateEquipmentLoan(dummyTool, 10)).toBe(true)
         expect(validateEquipmentLoan(dummyTool, 14)).toBe(true)
         expect(validateEquipmentLoan(dummyTool, 15)).toBe(false)
     })
-    it('should not allow zero or negative loaning duration' , () => {
+    it('should approve loan that is >= 1 day' , () => {
         expect(validateEquipmentLoan(dummyTool, 1)).toBe(true)
         expect(validateEquipmentLoan(dummyTool, 0)).toBe(false)
         expect(validateEquipmentLoan(dummyTool, -1)).toBe(false)
