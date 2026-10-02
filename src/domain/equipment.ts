@@ -8,5 +8,5 @@ export interface equipment  {
     stock: number,
 }
 export function validateEquipmentLoan(tool: equipment, askedLoaningDuration: number): boolean  {
-    return tool.category.maxLoanDuration >= askedLoaningDuration
+    return tool.category.maxLoanDuration >= askedLoaningDuration && askedLoaningDuration > 0
 }
