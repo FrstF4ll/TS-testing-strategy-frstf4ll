@@ -15,7 +15,7 @@ describe('Loaning availability', () => {
         expect(validateEquipmentLoan(dummyTool, 14)).toBe(true)
         expect(validateEquipmentLoan(dummyTool, 15)).toBe(false)
     })
-    it('should not allow negative loaning duration' , () => {
+    it('should not allow zero or negative loaning duration' , () => {
         expect(validateEquipmentLoan(dummyTool, 1)).toBe(true)
         expect(validateEquipmentLoan(dummyTool, 0)).toBe(false)
         expect(validateEquipmentLoan(dummyTool, -1)).toBe(false)
