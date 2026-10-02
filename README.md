@@ -38,9 +38,9 @@ e2e -> User process and pathing. When he perform an action, does it perform, and
 | Level                   | What It Covers                                                                      | Which Tool            | Expected Number of Tests |
 |:------------------------|:------------------------------------------------------------------------------------|:----------------------|:-------------------------|
 | **Level 1: Unit**       | Individual domain logics.                                                           | Vitest                | 50                       |
-| **Level 2: Component**  | Interactions between multiple components, database queries, and service boundaries. | React-Testing Library | 40                       |
-| **Level 3: Functional** | Full user workflows from the UI layer down to the database/external APIs.           | Vitest                | 20                       |
-| **Level 4: End-to-End** | Interactions between multiple components, database queries, and service boundaries. | Playwright            | 6                        |
+| **Level 2: Component**  | Isolated frontend component rendering and interaction, with services mocked.         | React-Testing Library | 40                       |
+| **Level 3: Functional** | API Routing, data flowing, data inside database (are there the intended datas)      | Vitest                | 20                       |
+| **Level 4: End-to-End** | Full user workflows from the UI down to the database/external APIs.                 | Playwright            | 6                        |
 
 ## Table of exclusion
 | Level | What Will Not Be Tested Here                                                                                                               | 
@@ -54,4 +54,4 @@ e2e -> User process and pathing. When he perform an action, does it perform, and
 
 - e2e and functional should test critical part of the app (important route, form saving for e2e... Prevent user from locating equipment for too long...)
 - unit should test domain rules, answering "is this rules respected".
-- Component should be responsible of unique component rendering. While e2e ensure the process (When saving document, are we redirected to the document page and is the document visible with all its informations ?), component focus on (is the page rendering and is it displaying these other components).
+- Component should be responsible of unique component rendering. While e2e ensure the process (When saving document, are we redirected to the document page and is the document visible with all its informations ?), component focus on (is the isolated component rendering and is it displaying these other components, without whole-page navigation or persistence).
