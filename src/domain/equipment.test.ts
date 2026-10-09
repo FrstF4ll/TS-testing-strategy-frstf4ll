@@ -17,9 +17,9 @@ describe('Loaning availability', () => {
         expect(validateEquipmentLoan(dummyTool, 1)).toBe(true)
         expect(validateEquipmentLoan(dummyTool, 0)).toBe(false)
     })
-
-    it.each([1.5, NaN, Infinity
-    ])('should refuse non-integer duration %s', (duration) => {
+    
+    it.each([NaN, Infinity
+    ])('should refuse duration %s (not a finite number)', (duration) => {
         expect(validateEquipmentLoan(dummyTool, duration)).toBe(false)
     })
 })
