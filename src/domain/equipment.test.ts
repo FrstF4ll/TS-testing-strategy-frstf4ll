@@ -22,7 +22,7 @@ describe('Loaning availability', () => {
     })
 
     it.each([1.5, NaN, Infinity
-    ])('reject non-integer duration %s', (duration) => {
+    ])('should refuse non-integer duration %s', (duration) => {
         expect(validateEquipmentLoan(dummyTool, duration)).toBe(false)
     })
 })
