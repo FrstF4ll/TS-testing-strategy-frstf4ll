@@ -9,13 +9,14 @@ export interface equipment {
     stock: number,
 }
 
-function validateEquipmentLoanDuration(tool: equipment, askedLoaningDuration: number) {
+function validateEquipmentLoanDuration(maximumDuration: number, askedLoaningDuration: number) {
     const isNumberInteger = Number.isInteger(askedLoaningDuration);
     const isAtLeastMinimum = askedLoaningDuration >= 1;
-    const isAskedSmallerThanMaximum = tool.category.maxLoanDuration >= askedLoaningDuration
+    const isAskedSmallerThanMaximum = maximumDuration >= askedLoaningDuration
     return isNumberInteger && isAtLeastMinimum && isAskedSmallerThanMaximum
 }
 
 export function validateEquipmentLoan(tool: equipment, askedLoaningDuration: number): boolean {
-    return validateEquipmentLoanDuration(tool, askedLoaningDuration)
+    const maxDuration = tool.category.maxLoanDuration;
+    return validateEquipmentLoanDuration(maxDuration, askedLoaningDuration)
 }
