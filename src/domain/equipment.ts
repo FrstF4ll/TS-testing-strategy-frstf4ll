@@ -1,4 +1,4 @@
-interface equipmentCategory {
+export interface equipmentCategory {
     label: string,
     maxLoanDuration: number
 }

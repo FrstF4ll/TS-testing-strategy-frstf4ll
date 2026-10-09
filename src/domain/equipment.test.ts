@@ -1,18 +1,20 @@
 import {describe, expect, it} from "vitest";
-import {type equipment, validateEquipmentLoan} from "./equipment.ts";
+import {validateEquipmentLoan} from "./equipment.ts";
+
 
 describe('Loaning availability', () => {
-    const dummyCategory = {label: 'hand_tool', maxLoanDuration: 14}
-    const dummyTool: equipment = {
-        label: 'hammer',
-        category: dummyCategory,
-        stock: 4
-    };
-    const isLoanDurationApproved = (duration: number) => validateEquipmentLoan(dummyTool, duration)
 
-    it('should approve loan only if asked duration <= max allowed duration', () => {
-        expect(isLoanDurationApproved(14)).toBe(true)
-        expect(isLoanDurationApproved(15)).toBe(false)
+    const dummyTool = (maxDuration: number = 3, stock: number = 1) => ({
+        label: 'tool',
+        category: {label: 'category', maxLoanDuration: maxDuration},
+        stock: stock,
+    })
+
+    const isLoanDurationApproved = (askedDuration: number, maxDuration: number = 3) => validateEquipmentLoan(dummyTool(maxDuration), askedDuration)
+
+    it.each([3, 7, 14])('should approve loan only if asked duration <= max allowed duration', (maxDuration) => {
+        expect(isLoanDurationApproved(maxDuration, maxDuration)).toBe(true)
+        expect(isLoanDurationApproved(maxDuration + 1, maxDuration)).toBe(false)
     })
     it('should approve only if loan duration >= 1 day', () => {
         expect(isLoanDurationApproved(1)).toBe(true)
