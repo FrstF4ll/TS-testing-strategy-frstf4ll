@@ -12,8 +12,8 @@ export interface equipment {
 function validateEquipmentLoanDuration(maximumDuration: number, askedLoaningDuration: number) {
     const isNumberInteger = Number.isInteger(askedLoaningDuration);
     const isAtLeastMinimum = askedLoaningDuration >= 1;
-    const isAskedSmallerThanMaximum = maximumDuration >= askedLoaningDuration
-    return isNumberInteger && isAtLeastMinimum && isAskedSmallerThanMaximum
+    const isAskedWithinMaximum = maximumDuration >= askedLoaningDuration
+    return isNumberInteger && isAtLeastMinimum && isAskedWithinMaximum
 }
 
 export function validateEquipmentLoan(tool: equipment, askedLoaningDuration: number): boolean {
