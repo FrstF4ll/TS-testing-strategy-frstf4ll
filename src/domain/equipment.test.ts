@@ -8,27 +8,27 @@ describe('Loaning availability', () => {
         category: dummyCategory,
         stock: 4
     };
-    const isLoanApproved = (duration: number) => validateEquipmentLoan(dummyTool, duration)
+    const isLoanDurationApproved = (duration: number) => validateEquipmentLoan(dummyTool, duration)
 
     it('should approve loan only if asked duration <= max allowed duration', () => {
-        expect(isLoanApproved(14)).toBe(true)
-        expect(isLoanApproved(15)).toBe(false)
+        expect(isLoanDurationApproved(14)).toBe(true)
+        expect(isLoanDurationApproved(15)).toBe(false)
     })
     it('should approve only if loan duration >= 1 day', () => {
-        expect(isLoanApproved(1)).toBe(true)
-        expect(isLoanApproved(0)).toBe(false)
+        expect(isLoanDurationApproved(1)).toBe(true)
+        expect(isLoanDurationApproved(0)).toBe(false)
     })
 
     it('should refuse negative duration', () => {
-        expect(isLoanApproved(-1)).toBe(false)
+        expect(isLoanDurationApproved(-1)).toBe(false)
     })
 
     it('should refuse duration values that are not integer', () => {
-        expect(isLoanApproved(1.5)).toBe(false)
+        expect(isLoanDurationApproved(1.5)).toBe(false)
     })
 
     it.each([NaN, Infinity
     ])('should refuse duration %s (not a finite number)', (duration) => {
-        expect(isLoanApproved(duration)).toBe(false)
+        expect(isLoanDurationApproved(duration)).toBe(false)
     })
 })
