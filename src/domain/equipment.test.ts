@@ -16,6 +16,7 @@ describe('Loaning availability', () => {
     })
     it('should approve only if loan duration >= 1 day', () => {
         expect(validateEquipmentLoan(dummyTool, 1)).toBe(true)
+        expect(validateEquipmentLoan(dummyTool, 0.5)).toBe(false)
         expect(validateEquipmentLoan(dummyTool, 0)).toBe(false)
         expect(validateEquipmentLoan(dummyTool, -1)).toBe(false)
     })
