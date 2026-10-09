@@ -10,5 +10,9 @@ export interface equipment {
 }
 
 export function validateEquipmentLoan(tool: equipment, askedLoaningDuration: number): boolean {
-    return tool.category.maxLoanDuration >= askedLoaningDuration && askedLoaningDuration >= 1
+    if (!Number.isInteger(askedLoaningDuration)) {
+        return false
+    } else {
+        return tool.category.maxLoanDuration >= askedLoaningDuration && askedLoaningDuration >= 1
+    }
 }
